@@ -1,32 +1,32 @@
 public class GameOfLife {
-	public int[][] MainBoard;
+	public String[][] MainBoard;
 
-	public GameOfLife(int width, int height) {
-		MainBoard = DeadState(width, height);
+	public GameOfLife(int rows, int columns) {
+		MainBoard = RandomState(rows, columns);
 	}
 
-	public int[][] DeadState(int width, int height) {
-		int[][] DeadBoard = new int[width][height];
+	public String[][] DeadState(int rows, int columns) {
+		String[][] DeadBoard = new String[rows][columns];
 
-		for (int i = 0; i < width; i++) {
-			for (int j = 0; j < height; j++) {
-				DeadBoard[i][j] = 0;
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < columns; j++) {
+				DeadBoard[i][j] = " ";
 			}
 		}
 
 		return DeadBoard;
 	}
 
- 	public int[][] RandomState(int width, int height) {
-		int[][] RandomBoard = new int[width][height];
+ 	public String[][] RandomState(int rows, int columns) {
+		String[][] RandomBoard = new String[rows][columns];
 		double RandomNumber = 0;
-		for (int i = 0; i < width; i++) {
-			for (int j = 0; j < height; j++) {
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < columns; j++) {
 				RandomNumber = Math.random();
 				if (RandomNumber >= 0.5) {
-					RandomBoard[i][j] = 1;
+					RandomBoard[i][j] = "ඞ";
 				} else {
-					RandomBoard[i][j] = 0;
+					RandomBoard[i][j] = " ";
 				}
 				
 			}
@@ -35,9 +35,25 @@ public class GameOfLife {
 		return RandomBoard;
 	}
 
-	public void PrintBoard() {
-
+	public void RenderState(String[][] board) {
+		int columns = board[0].length;
+        int rows = board.length;
+        
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(board[i][j]);
+            }
+            System.out.println();
+        }
 	}
 	
+	public String[][] getBoard() {
+		return MainBoard;
+	}
+
+	public void NextState(String[][] board) {
+		String[][] NextBoardState = board;
+		
+	}
 
 }
