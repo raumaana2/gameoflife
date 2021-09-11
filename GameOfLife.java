@@ -1,13 +1,43 @@
 public class GameOfLife {
-	private int board_width;
-	private int board_height;
-	private boolean[][] board;
+	public int[][] MainBoard;
 
-	public GameOfLife(){
-		boardwidth = 0;
-		boardheight = 0;
-		board = new int[board_width][board_height];
+	public GameOfLife(int width, int height) {
+		MainBoard = RandomState(width, height);
 	}
 
+	public int[][] DeadState(int width, int height) {
+		int[][] DeadBoard = new int[width][height];
+
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				DeadBoard[i][j] = 0;
+			}
+		}
+
+		return DeadBoard;
+	}
+
+ 	public int[][] RandomState(int width, int height) {
+		int[][] RandomBoard = new int[width][height];
+		double RandomNumber = 0;
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				RandomNumber = Math.random();
+				if (RandomNumber >= 0.5) {
+					RandomBoard[i][j] = 1;
+				} else {
+					RandomBoard[i][j] = 0;
+				}
+				
+			}
+		}
+
+		return RandomBoard;
+	}
+
+	public void PrintBoard() {
+
+	}
 	
+
 }
