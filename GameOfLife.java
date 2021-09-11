@@ -2,7 +2,7 @@ public class GameOfLife {
 	public int[][] MainBoard;
 
 	public GameOfLife(int width, int height) {
-		MainBoard = RandomState(width, height);
+		MainBoard = DeadState(width, height);
 	}
 
 	public int[][] DeadState(int width, int height) {
