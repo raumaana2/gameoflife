@@ -1,9 +1,5 @@
-public class GameOfLife {
-	private int[][] MainBoard;
-
-	public GameOfLife(int rows, int columns) {
-		MainBoard = RandomState(rows, columns);
-	}
+public class GameOfLifeStates {
+	
 
 	public int[][] DeadState(int rows, int columns) {
 		int[][] DeadBoard = new int[rows][columns];
@@ -47,9 +43,6 @@ public class GameOfLife {
         }
 	}
 	
-	public int[][] getBoard() {
-		return MainBoard;
-	}
 
 	public int[][] NextState(int[][] InitialBoardState) {
 		int columns = InitialBoardState[0].length;
@@ -85,8 +78,6 @@ public class GameOfLife {
 		}
 
 		return NextBoardState;
-		
-
 	}
 
 }
