@@ -1,8 +1,6 @@
 public class GameOfLifeStates {
 	
-	public GameOfLifeStates() {
-		
-	}
+
 
 	public int[][] DeadState(int rows, int columns) {
 		int[][] DeadBoard = new int[rows][columns];
