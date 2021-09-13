@@ -50,10 +50,11 @@ public class GameOfLifeStates {
 		int[][] NextBoardState = new int[rows][columns];
 
 		for (int x = 0; x < rows; x++ ) {
+
 			for (int y = 0; y < columns; y++) {
 				int neighbours = 0;
-				for (int i = (x - 1) % (rows + 1); i < (x + 1) % (rows + 1); i++) {
-					for (int j = (y - 1) % (columns + 1); j < (y + 1) % (columns + 1); j++) {
+				for (int i = Math.floorMod(x - 1, rows + 1); i < Math.floorMod(x + 1, rows + 1); i++) {
+					for (int j = Math.floorMod(y - 1, columns + 1); j < Math.floorMod(y + 1, columns + 1); j++) {
 						if (InitialBoardState[i][j] == 1) {
 							neighbours++;
 						}
