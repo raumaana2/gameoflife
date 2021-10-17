@@ -1,7 +1,4 @@
 public class GameOfLifeStates {
-	
-
-
 	public int[][] DeadState(int rows, int columns) {
 		int[][] DeadBoard = new int[rows][columns];
 
@@ -10,7 +7,6 @@ public class GameOfLifeStates {
 				DeadBoard[i][j] = 0;
 			}
 		}
-
 		return DeadBoard;
 	}
 
@@ -38,7 +34,12 @@ public class GameOfLifeStates {
         
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                System.out.print(board[i][j]);
+				if (board[i][j] == 1) {
+					System.out.print("X");
+				} else {
+					System.out.print("·");
+				}
+                
             }
             System.out.println();
         }
@@ -56,12 +57,9 @@ public class GameOfLifeStates {
 				int neighbours = 0;
 				for (int i = Math.max(0, x-1); i <= Math.min(x + 1, rows - 1); i++) {
 					for (int j = Math.max(0, y - 1); j <= Math.min(y + 1, columns - 1); j++) {
-						
-
 						if (i == x & j == y) {
 							continue;
 						}
-						
 						if (InitialBoardState[i][j] == 1) {
 							neighbours++;
 						}
